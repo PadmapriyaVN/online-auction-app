@@ -26,8 +26,8 @@ const theme = createTheme({
 function App() {
   const [user, setUser] = useState(null);  // User state, initially null (not logged in)
 
-  const handleLogin = (userName) => {
-    setUser({ name: userName });
+  const handleLogin = (user) => {
+    setUser({ name: user?.name, email: user?.email });  // Set user state
   };
 
   return (

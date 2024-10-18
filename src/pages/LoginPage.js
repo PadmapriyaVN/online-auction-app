@@ -45,7 +45,7 @@ const LoginPage = ({ onLogin }) => {
     const onSubmit = (data) => {
         console.log(data);
         // Call your login API here
-        onLogin('test123');
+        onLogin( {name: 'olivia', email: data.email});
         navigate('/');
     };
 

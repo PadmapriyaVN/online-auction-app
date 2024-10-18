@@ -13,6 +13,7 @@ import { ReactComponent as Logo } from '../assets/logo.svg'; // Import your SVG 
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'; // Importing dropdown arrow icon
 import TranslateIcon from '@mui/icons-material/Translate'; // Language icon
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import UserDropdown from './UserDropdown';
 const Header = ({ user, onLogin }) => {
   // State for Auctions dropdown
   const [auctionsAnchorEl, setAuctionsAnchorEl] = React.useState(null);
@@ -76,9 +77,8 @@ const handleLangClose = () => {
 
         <Box display="flex" alignItems="center" flexGrow={1}>
           <Logo style={{ width: '40px', height: '40px', marginRight: '10px' }} />
-          <Typography variant="h4" component="div">
-            Genix Auctions
-          </Typography>
+          <Link to="/" style={{ color: 'inherit', textDecoration:'none', fontFamily:'sans-serif', fontWeight:'bold', fontSize:'1.5rem' }}> Genix Auctions</Link>
+          
         </Box>
 
 
@@ -200,22 +200,7 @@ const handleLangClose = () => {
           </>
         ) : (
           <>
-            <IconButton
-              size="large"
-              edge="end"
-              color="inherit"
-              onClick={handleUserMenuOpen}
-            >
-              <AccountCircle />
-            </IconButton>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleUserMenuClose}
-            >
-              <MenuItem onClick={handleUserMenuClose}>Profile</MenuItem>
-              <MenuItem onClick={handleLogout}>Logout</MenuItem>
-            </Menu>
+            <UserDropdown user={user} onLogin={onLogin}/>
 
           </>)}
       </Toolbar>

@@ -8,8 +8,11 @@ import {
     Button,
     Chip
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 
 const AuctionCard = ({ auction }) => {
+     const navigate = useNavigate(); // Initialize the navigate function
+
     return (
         <Card sx={{ minWidth: 200, m: 2 }}>
             {/* Auction Image */}
@@ -29,9 +32,18 @@ const AuctionCard = ({ auction }) => {
             {/* Content */}
             <CardContent>
                 {/* Left Aligned Chip */}
-                <Box sx={{ mb: 1, textAlign: 'left' }}>
-                    <Chip label="Live Auction" color="success" />
+                <Box sx={{ mb: 1,  }}>
+                <Chip label="Live Auction" testAlign='left' sx={{
+        
+          backgroundColor: '#21A67A',
+          color: 'white',
+          fontSize: '12px',
+          padding: '8px',
+          borderRadius: '12px', // Rounded corners
+        }} /> 
+                
                 </Box>
+                
 
                 {/* Auction Title */}
                 <Typography variant="body2" sx={{ fontWeight: 'bold', textAlign: 'left' }}>
@@ -77,9 +89,10 @@ const AuctionCard = ({ auction }) => {
                  sx={{                   
                     py: 1.5,
                     background: 'linear-gradient(to right, #DB2721, #5AD7FE)', // Blue gradient
-                    color: 'white',                  
-                    
-                  }}>
+                    color: 'white',                 
+                   
+                  }}
+                  onClick={() => navigate('/product-auction')}>
                     {'Bid Now >'}
                 </Button>
             </Box>

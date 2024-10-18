@@ -56,13 +56,59 @@ const auctionList = [
     timeRemaining: '1 day 12 hrs 43 minutes',
     image: Image5, // Replace with your image URL
     status: 'Live Auction'
-  },
-
+  }, 
+    {
+      id: 6,
+      title: 'Sony Black Headphones',
+      minBid: 100,
+      currentBid: 157,
+      timeRemaining: '1 day 12 hrs 43 minutes',
+      image: Image1, // Replace with your image URL
+      status: 'Live Auction'
+    },
+    {
+      id: 7,
+      title: 'Apple AirPod 2nd Gen',
+      minBid: 80,
+      currentBid: 95,
+      timeRemaining: '1 day 12 hrs 43 minutes',
+      image: Image2, // Replace with your image URL
+      status: 'Live Auction'
+    },
+  
+    {
+      id: 8,
+      title: 'Mi 3i 2000mAh Power Bank',
+      minBid: 40,
+      currentBid: 46,
+      timeRemaining: '1 day 12 hrs 43 minutes',
+      image: Image4, // Replace with your image URL
+      status: 'Live Auction'
+    },
+    {
+      id: 9,
+      title: 'Tribet Bluetooth Speaker',
+      minBid: 10,
+      currentBid: 15,
+      timeRemaining: '1 day 12 hrs 43 minutes',
+      image: Image3, // Replace with your image URL
+      status: 'Live Auction'
+    },
+    {
+      id: 10,
+      title: 'WiFi Security Camera',
+      minBid: 100,
+      currentBid: 157,
+      timeRemaining: '1 day 12 hrs 43 minutes',
+      image: Image5, // Replace with your image URL
+      status: 'Live Auction'
+    },
   // Add more items here
 ];
 
+
 function LandingPage({ user }) {
-  console.log('user', user);
+  
   return (
     <Box sx={{ mt: 8, textAlign: "center" }}>
       {!user?.name ? (
@@ -106,7 +152,7 @@ function LandingPage({ user }) {
         <>
          <Box sx={{ maxWidth: '1200px', p: 3, marginBottom: '50px' }}>
           <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 3, textAlign: 'left' }}>
-            Welcome <span style={{ color: '#1976D2' }}>{user.name}!</span>
+            Welcome <span style={{ color: '#1976D2' }}>{user?.name}!</span>
           </Typography>
 
           {/* Auction List */}
