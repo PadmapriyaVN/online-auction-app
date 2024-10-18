@@ -23,7 +23,8 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import GradientButton from '../components/GradientButton';
 import LoginIllustration from '../assets/login-illustration.svg'; // Import your SVG file
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
-
+import CryptoJS from 'crypto-js';
+import  { Encrypt_SecretKey } from '../helper/constants'
 // Define the validation schema using yup
 const schema = yup.object().shape({
     email: yup.string().email('Invalid email').required('Email is required'),
@@ -39,13 +40,20 @@ const LoginPage = ({ onLogin }) => {
         control,
         formState: { errors },
     } = useForm({
-             resolver: yupResolver(schema),
+        resolver: yupResolver(schema),
     });
 
     const onSubmit = (data) => {
+
+
         console.log(data);
+
+        // Encrypt the password before sending it to the backend
+        const encryptedPassword = CryptoJS.AES.encrypt(data.password, Encrypt_SecretKey).toString();
+        console.log('encryptedPassword', encryptedPassword);
+
         // Call your login API here
-        onLogin( {name: 'olivia', email: data.email});
+        onLogin({ name: 'olivia', email: data.email });
         navigate('/');
     };
 
@@ -156,10 +164,10 @@ const LoginPage = ({ onLogin }) => {
                             />
                             <Link href="#" variant="body2">
                                 Forgot Password
-                      </Link>
+                            </Link>
                         </Box>
 
-                  {/* Submit Button */}
+                        {/* Submit Button */}
                         <GradientButton type="submit">
                             Continue
                         </GradientButton>

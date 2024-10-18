@@ -9,6 +9,8 @@ import AppleIcon from '@mui/icons-material/Apple';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GradientButton from '../components/GradientButton'; // Import the GradientButton
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import  CryptoJS from 'crypto-js';
+import  { Encrypt_SecretKey } from '../helper/constants'
 // Validation schema using Yup
 const schema = yup.object().shape({
   firstName: yup.string().required('First Name is required'),
@@ -36,6 +38,11 @@ const GetStartedPage = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    
+     // Encrypt the password before sending it to the backend
+     const encryptedPassword = CryptoJS.AES.encrypt(data.password, Encrypt_SecretKey).toString();
+     console.log('encryptedPassword', encryptedPassword);
+    // Call your sign-up API here
     navigate('/signup-success');
   };
 

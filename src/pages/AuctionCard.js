@@ -33,7 +33,7 @@ const AuctionCard = ({ auction }) => {
             <CardContent>
                 {/* Left Aligned Chip */}
                 <Box sx={{ mb: 1,  }}>
-                <Chip label="Live Auction" testAlign='left' sx={{
+                <Chip label="Live Auction" textAlign='left' sx={{
         
           backgroundColor: '#21A67A',
           color: 'white',
